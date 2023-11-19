@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -12,6 +15,7 @@ body {
   display: flex;
   place-items: center;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 h1 {
@@ -38,46 +42,97 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-#Back{
+.container{
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(90deg, blue, lightblue);
+  background-color: rgb(129, 129, 195);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 0px 0px;
+  gap: 10px;
+  overflow: hidden;
+  .concept{
+    width: 50%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    img{
+      height: 80%;
+    }
+    .thoughts{
+      width: 200px;
+      height: 100px;
+      background-color: white;
+      border-radius: 25px;
+      position: absolute;
+      top: 40px;
+      left: 52%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Victor Mono', monospace;
+
+    }
+  }
+  .words{
+    width: 60%;
+    height: 100px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    
+      #Line{
+        width: 5%;
+        height: 4px;
+        background-color: white;
+        color: white;
+        font-size: 40px;
+        text-align: center;
+        p{
+          margin-top: -60px;
+          font-family: sans-serif;
+          font-weight: 900;
+        }
+      }
+  }
+}
+#Keyboard {
+  width: 70%;
+  height: 300px;
+  background: linear-gradient(45deg, pink, #535bf2);
+  box-shadow: 1px 4px 10px 1px rgba(0, 0, 0, 0.409);
+  display: flex;
+  gap: 41px;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  padding: 50px;
+  border-radius: 25px;
+  #Key{
+    width: 60px;
+    height: 60px;
+    background-color: rgb(122, 58, 119);
+    box-shadow: 1px 5px 15px .5px rgba(255, 192, 203, 0.554);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: sans-serif;
+    color: white;
+    font-size: 25px;
+    font-weight: 900;
+  }
 }
 
-#Form{
-  width: 900px;
-  height: 400px;
-  background-color: rgb(96, 82, 82);
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  justify-content: center;
-  padding: 0px 50px;
-  gap: 50px;
-  input{
-    width: 900px;
-    height: 40px;
-    border-radius: 6px;
-    box-shadow: 2px 1px 4px 1px rgba(0, 0, 0, 0.136);
-    outline: none;
-  }
-  button{
-    outline: none;
-  }
+#SpaceKey{
+  background-color: rgb(110, 94, 94);
 }
+
