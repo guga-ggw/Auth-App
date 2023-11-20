@@ -1,6 +1,39 @@
 *{
   box-sizing: border-box;
 }
+
+@mixin view1500 {
+  @media screen and (max-width : 1500px) {
+    @content
+  }
+}
+
+@mixin view1200 {
+  @media screen and (max-width : 1200px) {
+    @content
+  }
+}
+
+@mixin view1000 {
+  @media screen and (max-width : 1000px) {
+    @content
+  }
+}
+@mixin view800 {
+  @media screen and (max-width : 800px) {
+    @content
+  }
+}
+@mixin view600 {
+  @media screen and (max-width : 600px) {
+    @content
+  }
+}
+@mixin view400 {
+  @media screen and (max-width : 400px) {
+    @content
+  }
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -54,6 +87,9 @@ button:focus-visible {
   gap: 10px;
   overflow: hidden;
   .concept{
+    @include view600{
+      height: 400px;
+    }
     width: 50%;
     height: 500px;
     display: flex;
@@ -62,6 +98,10 @@ button:focus-visible {
     position: relative;
     img{
       height: 80%;
+      pointer-events: none;
+      @include view600{
+        height: 60%;
+      }
     }
     .thoughts{
       width: 200px;
@@ -77,6 +117,17 @@ button:focus-visible {
       justify-content: center;
       font-family: 'Victor Mono', monospace;
 
+      @include view600{
+        width: 150px;
+        height: 80px;
+        font-size: 12px;
+      }
+      @include view400{
+        width: 140px;
+        left: 48%;
+        font-size: 10px;
+      }
+
     }
   }
   .words{
@@ -88,6 +139,7 @@ button:focus-visible {
     justify-content: center;
     
       #Line{
+
         width: 5%;
         height: 4px;
         background-color: white;
@@ -95,6 +147,10 @@ button:focus-visible {
         font-size: 40px;
         text-align: center;
         p{
+          @include view800{
+            font-size: 25px;
+            margin-top: -40px;
+          }
           margin-top: -60px;
           font-family: sans-serif;
           font-weight: 900;
@@ -103,6 +159,24 @@ button:focus-visible {
   }
 }
 #Keyboard {
+  @include view1500{
+    width: 90%;
+  }
+  @include view1000{
+      gap: 30px;
+      padding: 25px;
+  }
+  @include view800{
+    gap: 20px;
+    padding: 15px;
+  }
+  @include view600{
+    gap: 10px;
+    height: 200px;
+  }
+  @include view400{
+    padding: 10px;
+  }
   width: 70%;
   height: 300px;
   background: linear-gradient(45deg, pink, #535bf2);
@@ -114,7 +188,28 @@ button:focus-visible {
   justify-content: center;
   padding: 50px;
   border-radius: 25px;
+
   #Key{
+    @include view1200{
+      height: 50px;
+      width: 50px;
+      font-size: 20px;
+      border-radius: 10px;
+    }
+    @include view1000{
+      height: 45px;
+      width: 45px;
+    }
+    @include view600{
+      width: 35px;
+      height: 35px;
+      font-size: 15px;
+    }
+    @include view400{
+      width:30px;
+      height: 30px;
+      font-size: 12px;
+    }
     width: 60px;
     height: 60px;
     background-color: rgb(122, 58, 119);
@@ -136,3 +231,99 @@ button:focus-visible {
   background-color: rgb(110, 94, 94);
 }
 
+
+.starting_page{
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, #535bf2, red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  button{
+    width: 200px;
+    height: 40px;
+    color: white;
+  }
+}
+#errored_txt{
+  color: red;
+}
+
+#Red_Line{
+        width: 5%;
+        height: 4px;
+        background-color: rgb(255, 0, 0);
+        color: white;
+        font-size: 40px;
+        text-align: center;
+        p{
+          margin-top: -60px;
+          font-family: sans-serif;
+          font-weight: 900;
+        }
+}
+
+#overlay{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.524);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000000;
+  #modul{
+    @include view1000{
+      width: 85%;
+    }
+    @include view800{
+      width: 90%;
+    }
+    width: 700px;
+    height: 400px;
+    background-color: rgb(50, 150, 225);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    h2{
+      color: white;
+      font-family: sans-serif;
+    }
+    h1{
+      font-size: 70px;
+      font-family: 'Fjalla One', sans-serif;
+      text-shadow: 2px 4px 5px black;
+      @include view600{
+        font-size: 50px;
+      }
+    }
+  }
+  button{
+    color: white;
+    font-family: sans-serif;
+    width: 150px;
+  }
+}
+
+#correct_line{
+  width: 7%;
+  height: 4px;
+  background-color: rgb(0, 255, 8);
+  color: rgb(0, 255, 8);
+  font-size: 40px;
+  text-align: center;
+  p{
+    margin-top: -60px;
+    font-family: sans-serif;
+    font-weight: 900;
+  }
+}
